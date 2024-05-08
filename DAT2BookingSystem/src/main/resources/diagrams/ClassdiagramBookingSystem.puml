@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Student{
+String email
+String name
+int phone
+}
+class Booking{
+int bookingDate
+int days
+String comment
+boolean bookingStatus
+}
+class Item{
+String name
+String itemDescription
+}
+class Room {
+String name
+String roomDescription
+}
+
+class StudentController{
+viewStudent()
+createStudent()
+}
+
+class BookingController{
+viewAllItems()
+viewAllBookedItems()
+}
+
+Student "1.." --> "0.." Booking
+Booking "1.."--> "1" Item
+Item "1" --> "1" Room
+
+
+
+@enduml
