@@ -1,6 +1,10 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+class main{
+public static void main(String[] args)
+}
+
 class Student{
 String email
 String name
@@ -31,9 +35,18 @@ viewAllItems()
 viewAllBookedItems()
 }
 
-Student "1.." --> "0.." Booking
-Booking "1.."--> "1" Item
-Item "1" --> "1" Room
+class BookingMapper{
+getAllStudents()
+getAllItems()
+getBookedItems()
+
+}
+
+Student --> Booking
+Booking <--  Item
+Item <--  Room
+Booking --> BookingController
+BookingController --> BookingMapper
 
 
 
